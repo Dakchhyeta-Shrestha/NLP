@@ -8,5 +8,12 @@
 - Run `python app.py`
 - Go to `http://127.0.0.1:8050/` on the browser of your choice
 
-# Demo
-![](https://github.com/Bidhan-Bajracharya/NLP/blob/main/A1/demo.gif)
+# Outputs
+- GloVe
+![](https://github.com/Dakchhyeta-Shrestha/NLP/blob/main/Assignment%20-1/untitled%20folder/Image%2015-1-2569%20BE%20at%2018.03%20(1).png)
+
+- Skip-gram (Neagtive)
+![](https://github.com/Dakchhyeta-Shrestha/NLP/blob/main/Assignment%20-1/untitled%20folder/Image%2015-1-2569%20BE%20at%2018.03%20(2).png)
+
+- Skip-gram
+![](https://github.com/Dakchhyeta-Shrestha/NLP/blob/main/Assignment%20-1/untitled%20folder/Image%2015-1-2569%20BE%20at%2018.03.png)
