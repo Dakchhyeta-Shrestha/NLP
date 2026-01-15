@@ -10,10 +10,10 @@
 
 # Outputs
 - GloVe
-![](https://github.com/Dakchhyeta-Shrestha/NLP/blob/main/Assignment%20-1/untitled%20folder/Image%2015-1-2569%20BE%20at%2018.03%20(1).png)
+![](https://github.com/Dakchhyeta-Shrestha/NLP/blob/main/Assignment%20-1/outputs/Image%2015-1-2569%20BE%20at%2018.03%20(1).png)
 
 - Skip-gram (Neagtive)
-![](https://github.com/Dakchhyeta-Shrestha/NLP/blob/main/Assignment%20-1/untitled%20folder/Image%2015-1-2569%20BE%20at%2018.03%20(2).png)
+![](https://github.com/Dakchhyeta-Shrestha/NLP/blob/main/Assignment%20-1/outputs/Image%2015-1-2569%20BE%20at%2018.03%20(2).png)
 
 - Skip-gram
-![](https://github.com/Dakchhyeta-Shrestha/NLP/blob/main/Assignment%20-1/untitled%20folder/Image%2015-1-2569%20BE%20at%2018.03.png)
+![](https://github.com/Dakchhyeta-Shrestha/NLP/blob/main/Assignment%20-1/outputs/Image%2015-1-2569%20BE%20at%2018.03.png)
