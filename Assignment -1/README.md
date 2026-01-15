@@ -4,7 +4,7 @@
 - Use those model from `app.py` to use in the UI
 
 # To run the app
-- Go inside `Assignment -1/code folder
+- Go inside `Assignment -1/app
 - Run `python app.py`
 - Go to `http://127.0.0.1:8050/` on the browser of your choice
 
