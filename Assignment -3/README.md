@@ -46,13 +46,24 @@ Despite this, Additive Attention still produced the **lowest loss and perplexity
 To better understand how the model aligns source and target tokens, attention heatmaps were generated.  
 For visual clarity, an **8 × 8 attention heatmap** was produced by decoding multiple target steps during inference.
 
+### Additive Attention graph
+![](https://github.com/Dakchhyeta-Shrestha/NLP/blob/main/Assignment%20-3/code/assests/additive.png)
+
 ### Additive Attention Heatmap
-*(Screenshot included in the repository)*
+![](https://github.com/Dakchhyeta-Shrestha/NLP/blob/main/Assignment%20-3/code/assests/Additive_HM.png)
+
+### General Attention graph
+![](https://github.com/Dakchhyeta-Shrestha/NLP/blob/main/Assignment%20-3/code/assests/general.png)
 
 ### General Attention Heatmap
-*(Screenshot included in the repository)*
+![](https://github.com/Dakchhyeta-Shrestha/NLP/blob/main/Assignment%20-3/code/assests/General_HM.png)
 
 These heatmaps illustrate how the decoder attends to different source tokens while generating each target token.
+
+### Website Output
+
+1. ![](https://github.com/Dakchhyeta-Shrestha/NLP/blob/main/Assignment%20-3/code/assests/Output-1.png)
+2. ![](https://github.com/Dakchhyeta-Shrestha/NLP/blob/main/Assignment%20-3/code/assests/Output-2.png)
 
 ---
 
