@@ -1,4 +1,4 @@
-# Assignment 3: English to Nepali Neural Machine Translation
+# Assignment 3: Make Your Own Machine Translation Language
 
 This project implements an **English to Nepali Neural Machine Translation (NMT)** system using a **Seq2Seq Transformer architecture** with three different attention mechanisms:
 - General Attention
