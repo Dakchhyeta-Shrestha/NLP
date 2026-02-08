@@ -19,6 +19,7 @@ The models were trained and evaluated using the **OPUS-100 (English–Nepali)** 
 Additive Attention achieved slightly lower **training loss and perplexity**, indicating better learning during optimisation. It also performed marginally better on the validation set, suggesting improved generalisation to unseen data.
 
 Although the difference between the two models is small, Additive Attention shows **consistent improvement across both training and validation metrics**, making it the preferred choice for deployment.
+Due to time constraint and overworked mps device, the training data size is quite small hence, the output might not be what we expected.
 
 ---
 
