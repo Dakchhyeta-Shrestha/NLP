@@ -58,13 +58,15 @@ streamlit run app.py
 
 ---
 
-## Output Screenshots
+## Output screenshots
 
-_Add your screenshots below._
-
-### Output
+### Contradiction
 ![Contradiction](https://github.com/Dakchhyeta-Shrestha/NLP/blob/main/Assignment%20-4/outputs/contradiction.png)
+
+### Entailment
 ![Entailment](https://github.com/Dakchhyeta-Shrestha/NLP/blob/main/Assignment%20-4/outputs/entailment.jpeg)
+
+### Neutral
 ![Neutral](https://github.com/Dakchhyeta-Shrestha/NLP/blob/main/Assignment%20-4/outputs/neutral.png)
 
 ---
