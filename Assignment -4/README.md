@@ -61,12 +61,15 @@ streamlit run app.py
 ## Output screenshots
 
 ### Contradiction
+Below is the output screenshot of Contradiction
 ![Contradiction](https://github.com/Dakchhyeta-Shrestha/NLP/blob/main/Assignment%20-4/outputs/contradiction.png)
 
 ### Entailment
+Below is the output screenshot of Entailment
 ![Entailment](https://github.com/Dakchhyeta-Shrestha/NLP/blob/main/Assignment%20-4/outputs/entailment.jpeg)
 
 ### Neutral
+Below is the output screenshot of Neutral
 ![Neutral](https://github.com/Dakchhyeta-Shrestha/NLP/blob/main/Assignment%20-4/outputs/neutral.png)
 
 ---
