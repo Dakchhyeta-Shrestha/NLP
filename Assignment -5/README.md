@@ -1,4 +1,4 @@
-# Assignment 5  DPO Fine Tuning and Evaluation
+# Assignment 5:  DPO Fine Tuning and Evaluation
 
 ## Project overview
 This project explores hyperparameter tuning and Direct Preference Optimization DPO to improve a pretrained language model. The workflow included importing a preference dataset, running controlled training experiments, uploading the fine tuned model to Hugging Face, and evaluating the base and DPO models using AlpacaEval with an LLM as a judge. The objective was to analyze how training configurations influence performance and whether DPO improves model quality.
@@ -43,18 +43,18 @@ Batch size results screenshot
 
 ![Batch size results](https://github.com/Dakchhyeta-Shrestha/NLP/blob/main/Assignment%20-5/Screenshots/Batch_size_experiment.jpeg)
 
+In this experiment, we tested the performance of the model using different batch sizes: **4, 8, and 16**. The results show how the batch size influences both **training loss** and **validation accuracy**.
+**Batch Size = 4**: The model achieved a training loss of **0.49** after 2 epochs, with a validation accuracy of **189.28%**, showing steady improvement in both metrics across epochs.
+**Batch Size = 8**: With this batch size, the training loss decreased to **0.34**, but the validation accuracy was slightly lower at **188.50%**. This suggests that although the training loss decreased, the model did not generalize as well on the validation data.
+**Batch Size = 16**: The model showed the lowest training loss of **0.26** with this batch size, but the validation accuracy was **188.21%**, which was lower than the other batch sizes. The larger batch size led to faster training, but it also resulted in a slightly reduced performance on the validation set.
+Overall, while the **training loss** improved with increasing batch size, the **validation accuracy** was highest with a **batch size of 4**, suggesting a trade-off between faster training (with larger batch sizes) and better generalization (with smaller batch sizes).
+
 ## Hugging Face repository
 The final DPO fine tuned model was uploaded to Hugging Face for reproducibility and version control. This ensures that the trained model can be publicly accessed and evaluated.
 
 Paste your Hugging Face model URL below
 
 Hugging Face model URL: [https://huggingface.co/Dakchhyeta/Assignment5-qwen-dpo/tree/main]
-
-In this experiment, we tested the performance of the model using different batch sizes: **4, 8, and 16**. The results show how the batch size influences both **training loss** and **validation accuracy**.
-**Batch Size = 4**: The model achieved a training loss of **0.49** after 2 epochs, with a validation accuracy of **189.28%**, showing steady improvement in both metrics across epochs.
-**Batch Size = 8**: With this batch size, the training loss decreased to **0.34**, but the validation accuracy was slightly lower at **188.50%**. This suggests that although the training loss decreased, the model did not generalize as well on the validation data.
-**Batch Size = 16**: The model showed the lowest training loss of **0.26** with this batch size, but the validation accuracy was **188.21%**, which was lower than the other batch sizes. The larger batch size led to faster training, but it also resulted in a slightly reduced performance on the validation set.
-Overall, while the **training loss** improved with increasing batch size, the **validation accuracy** was highest with a **batch size of 4**, suggesting a trade-off between faster training (with larger batch sizes) and better generalization (with smaller batch sizes).
 
 ## DPO training
 The base model used was `Qwen/Qwen2.5-0.5B-Instruct`. This model was fine tuned using DPO with the truthy dpo dataset. Due to GPU memory constraints and limited training time, the model was trained for a small number of epochs with reduced batch sizes. Although this limited extensive hyperparameter tuning, a stable DPO model was produced and uploaded.
