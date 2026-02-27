@@ -6,3 +6,9 @@
 # if you only want to ignore specific ones instead, use:
 # glove.6B.100d.txt
 # model_gensim.pkl
+
+# model artifacts
+*.safetensors
+*.bin
+*.pt
+*.pth
