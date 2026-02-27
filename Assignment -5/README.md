@@ -13,23 +13,33 @@ Before applying DPO, three experiments were conducted to analyze how learning ra
 Three learning rates were tested: 1e-3, 1e-4, and 1e-5. In all cases, training loss decreased between epochs, showing that the model learned successfully. Smaller learning rates produced more stable convergence and lower average training loss. The 1e-5 configuration resulted in the lowest loss, suggesting that smaller updates preserve pretrained knowledge better during fine tuning.
 
 Learning rate results screenshot  
-Paste your image link below
 
 ![Learning rate results](https://github.com/Dakchhyeta-Shrestha/NLP/blob/main/Assignment%20-5/Screenshots/Learning_rate_experiment.jpeg)
+
+In this experiment, we evaluated the performance of the model using three different learning rates: **1e-3, 1e-4, and 1e-5**. Across all learning rates, the **training loss** showed steady improvement, with the model learning progressively over the epochs. Specifically, for `lr=1e-3`, the training loss decreased from **1.32 to 1.21**, for `lr=1e-4`, it decreased from **1.08 to 1.01**, and for `lr=1e-5`, it reduced slightly from **0.96 to 0.95**, indicating consistent learning. The training loss consistently improved for all three learning rates, with lr=1e-5 providing the smallest training loss. Moving forward, further experiments with other evaluation metrics, such as **validation loss**, could provide more reliable insights. Additionally, fine-tuning other hyperparameters (such as batch size and number of epochs) or using a learning rate scheduler may help optimize the model’s performance further.
 
 ### Epoch experiment
 The epoch experiment examined how increasing training iterations affected performance. Training loss improved as epochs increased, indicating progressive learning. However, the improvement became smaller over time, suggesting diminishing returns. Under limited GPU resources, increasing epochs beyond a certain point did not significantly improve validation accuracy.
 
 Epoch results screenshot  
-Paste your image link below
 
 ![Epoch results](https://github.com/Dakchhyeta-Shrestha/NLP/blob/main/Assignment%20-5/Screenshots/epoch_increase_experiment.jpeg)
+
+In this experiment, we tested the performance of the model with different numbers of epochs: **2, 5, and 10**. As the number of epochs increased, the training loss consistently decreased, indicating the model's improvement with additional training.
+
+*   For **Epoch 2**, the training loss started at **1.32** and decreased to **1.21**, with
+a validation accuracy of **193.98%**.
+
+*   For **Epoch 5**, the training loss started at **1.14** and dropped to **0.98**, with a validation accuracy of **193.77%.**
+
+*   For **Epoch 10**, the training loss started at **0.99** and dropped to **0.67**, with a validation accuracy of **189.36%.**
+
+While the training loss improved steadily with more epochs, the **validation accuracy** seemed to fluctuate. The validation accuracy was highest after 2 epochs and started decreasing with more epochs, indicating potential **overfitting** after longer training. Based on these results, a **balanced number of epochs** (likely between 2 to 5) appears optimal, as further training beyond that does not yield substantial improvement and may lead to overfitting.
 
 ### Batch size experiment
 Batch sizes of 4, 8, and 16 were tested. Larger batch sizes reduced training loss more quickly, but validation accuracy was highest with the smallest batch size. This suggests that while larger batches improve optimization efficiency, smaller batches may generalize better. The results highlight a trade off between convergence speed and validation performance.
 
 Batch size results screenshot  
-Paste your image link below
 
 ![Batch size results](https://github.com/Dakchhyeta-Shrestha/NLP/blob/main/Assignment%20-5/Screenshots/Batch_size_experiment.jpeg)
 
@@ -39,6 +49,12 @@ The final DPO fine tuned model was uploaded to Hugging Face for reproducibility 
 Paste your Hugging Face model URL below
 
 Hugging Face model URL: [https://huggingface.co/Dakchhyeta/Assignment5-qwen-dpo/tree/main]
+
+In this experiment, we tested the performance of the model using different batch sizes: **4, 8, and 16**. The results show how the batch size influences both **training loss** and **validation accuracy**.
+**Batch Size = 4**: The model achieved a training loss of **0.49** after 2 epochs, with a validation accuracy of **189.28%**, showing steady improvement in both metrics across epochs.
+**Batch Size = 8**: With this batch size, the training loss decreased to **0.34**, but the validation accuracy was slightly lower at **188.50%**. This suggests that although the training loss decreased, the model did not generalize as well on the validation data.
+**Batch Size = 16**: The model showed the lowest training loss of **0.26** with this batch size, but the validation accuracy was **188.21%**, which was lower than the other batch sizes. The larger batch size led to faster training, but it also resulted in a slightly reduced performance on the validation set.
+Overall, while the **training loss** improved with increasing batch size, the **validation accuracy** was highest with a **batch size of 4**, suggesting a trade-off between faster training (with larger batch sizes) and better generalization (with smaller batch sizes).
 
 ## DPO training
 The base model used was `Qwen/Qwen2.5-0.5B-Instruct`. This model was fine tuned using DPO with the truthy dpo dataset. Due to GPU memory constraints and limited training time, the model was trained for a small number of epochs with reduced batch sizes. Although this limited extensive hyperparameter tuning, a stable DPO model was produced and uploaded.
