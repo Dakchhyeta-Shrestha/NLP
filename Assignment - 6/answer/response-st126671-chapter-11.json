@@ -1,0 +1,122 @@
+[
+  {
+    "question": "What is information retrieval?",
+    "ground_truth_answer": "Information retrieval is the process of finding relevant documents or passages from a large collection of data in response to a user query.",
+    "naive_rag_answer": "We’ll begin by introducing information retrieval, the task of choosing the most relevant document from a document set given a user’s query expressing their infor- mation need. We’ll see the classic method based on cosines of sparse tf-idf vec- tors, modern neural ‘dense’ retriev",
+    "contextual_retrieval_answer": "Information retrieval Information retrieval or IR is the name of the field encompassing the retrieval of information retrieval"
+  },
+  {
+    "question": "What is the main goal of an information retrieval system?",
+    "ground_truth_answer": "The main goal of an information retrieval system is to retrieve documents that are most relevant to a user's query from a large document collection.",
+    "naive_rag_answer": "retrieval-augmented generation is used.",
+    "contextual_retrieval_answer": "T ranked documents are relevant, and N are irrelevant."
+  },
+  {
+    "question": "What is a document collection in information retrieval?",
+    "ground_truth_answer": "A document collection is the set of documents that an information retrieval system searches through to find relevant information.",
+    "naive_rag_answer": "We’ll begin by introducing information retrieval, the task of choosing the most relevant document from a document set given a user’s query expressing their infor- mation need. We’ll see the classic method based on cosines of sparse tf-idf vec- tors, modern neural ‘dense’ retriev",
+    "contextual_retrieval_answer": "We’ll discuss sparse retrieval in the rest of this chapter, and turn to dense retrieval in Section 11.3."
+  },
+  {
+    "question": "What is a query in information retrieval?",
+    "ground_truth_answer": "A query is a user's request for information, typically expressed as a set of keywords or a question submitted to an information retrieval system.",
+    "naive_rag_answer": "ad hoc retrieval",
+    "contextual_retrieval_answer": "augmented generation"
+  },
+  {
+    "question": "What is indexing in information retrieval?",
+    "ground_truth_answer": "Indexing is the process of organizing and storing information from documents in a structured format so that it can be efficiently searched and retrieved.",
+    "naive_rag_answer": "ad hoc retrieval",
+    "contextual_retrieval_answer": "Precision Recall Curves"
+  },
+  {
+    "question": "What is an inverted index?",
+    "ground_truth_answer": "An inverted index is a data structure that maps words or terms to the list of documents in which they appear, allowing efficient retrieval of documents containing specific terms.",
+    "naive_rag_answer": "EVALUATION OF INFORMATION-RETRIEVAL SYSTEMS 11 Rank Judgment PrecisionRank RecallRank 1 R 1.0 .11 2 N .50 .11 3 R .66 .22 4 N .50 .22 5 R .60 .33 6 R .66 .44 7 N .57 .",
+    "contextual_retrieval_answer": "Cosine: P of column: 0.747 Cosine: P of column: 0.0779 Figure 11.6 Computation of tf-idf cosine score between the query and nano-documents 1 (0.747) and 2 (0.0779), using Eq. 11.4, Eq. 11.5, Eq. 11.6 and Eq. 11."
+  },
+  {
+    "question": "What is term frequency?",
+    "ground_truth_answer": "Term frequency refers to the number of times a particular word or term appears in a document.",
+    "naive_rag_answer": "a word appearing 100 times in a document doesn’t make that word 100 times more likely to be relevant to the meaning of the document.",
+    "contextual_retrieval_answer": "a word appearing 100 times in a document doesn’t make that word 100 times more likely to be relevant to the meaning of the document."
+  },
+  {
+    "question": "What is inverse document frequency?",
+    "ground_truth_answer": "Inverse document frequency measures how important a term is by reducing the weight of common words and increasing the weight of rare terms across documents.",
+    "naive_rag_answer": "a word appearing 100 times in a document doesn’t make that word 100 times more likely to be relevant to the meaning of the document.",
+    "contextual_retrieval_answer": "et al. (2008) suggest reasonable values are k = [1.2,2] and b = 0.75."
+  },
+  {
+    "question": "What is TF-IDF?",
+    "ground_truth_answer": "TF-IDF is a weighting scheme that combines term frequency and inverse document frequency to evaluate how important a word is to a document in a collection.",
+    "naive_rag_answer": "b ranges from 1 (scaling by document length) to 0 (no length scaling).",
+    "contextual_retrieval_answer": "We use the tf-idf model to estimate the relevance of a document to the query."
+  },
+  {
+    "question": "What is document ranking in information retrieval?",
+    "ground_truth_answer": "Document ranking is the process of ordering retrieved documents based on their estimated relevance to the user's query.",
+    "naive_rag_answer": "Precision is the fraction of relevant documents seen at a given rank, and recall is the fraction of relevant documents found at the same rank.",
+    "contextual_retrieval_answer": "a score"
+  },
+  {
+    "question": "What is dense retrieval?",
+    "ground_truth_answer": "Dense retrieval uses neural embeddings to represent queries and documents as vectors and retrieves documents based on similarity between these vectors.",
+    "naive_rag_answer": "is computed as dot product or cosine in they embedding space.",
+    "contextual_retrieval_answer": "[CLS] and a [CLS] and a [CLS] and a [CLS] and a [CLS] and a [CLS] and a [CLS] and a [CLS] and a [CLS] and a [CLS] and a [CLS] and a [CLS"
+  },
+  {
+    "question": "What is sparse retrieval?",
+    "ground_truth_answer": "Sparse retrieval represents documents and queries using sparse vectors based on term frequencies or TF-IDF weights.",
+    "naive_rag_answer": "I love this movie! It's sweet, but with satirical humor. The dialogue is great and the adventure scenes are fun... It manages to be whimsical and romantic while laughing at the conventions of the fairy tale genre. I would recommend it to just about anyone. I've seen it several times, and I'm always happy to see it again whenever I have ",
+    "contextual_retrieval_answer": "a document is vector space model represented as a vector of counts of the words it contains. We sometimes call this kind of model a bag-of-words model. We could thus imagine representing the document in Fig. 11.2 as the vector [1 3 1 1 1 1 1 1 1 1 5 6 1 2 1 4 1 3 1 1 1 1 1  1"
+  },
+  {
+    "question": "What is the vector space model in information retrieval?",
+    "ground_truth_answer": "The vector space model represents documents and queries as vectors in a multi dimensional space and calculates similarity between them using measures such as cosine similarity.",
+    "naive_rag_answer": "We’ll discuss sparse retrieval in the rest of this section, and turn to dense retrieval in Section 11.3.",
+    "contextual_retrieval_answer": "The cosine similarity function is a measure of the cosine of a vector d with the query vector q: score(q,d) = cos(q,d) = qd |q||d| (11.7)"
+  },
+  {
+    "question": "What is cosine similarity?",
+    "ground_truth_answer": "Cosine similarity is a metric used to measure the similarity between two vectors by calculating the cosine of the angle between them.",
+    "naive_rag_answer": "the term-document matrix for four words in four Shakespeare plays.",
+    "contextual_retrieval_answer": "The term-document matrix for four words in four Shakespeare plays. Each cell contains the number of times the (row) word occurs in the (column) document."
+  },
+  {
+    "question": "What is retrieval augmented generation?",
+    "ground_truth_answer": "Retrieval augmented generation is a method that combines document retrieval with language models so that the model can generate answers using external knowledge sources.",
+    "naive_rag_answer": "The task for the language model is then to generate text according to this proba- bility model: p(x1,...,xn) = n Y i=1 p(xi|R(q) ; Answer the following question... ; q ; xi) There are many augmentations of this basic RAG",
+    "contextual_retrieval_answer": "re- tweet documents from a store of documents that are likely to have useful information."
+  },
+  {
+    "question": "Why is retrieval augmented generation useful for language models?",
+    "ground_truth_answer": "Retrieval augmented generation allows language models to access up to date and external information, reducing hallucinations and improving factual accuracy.",
+    "naive_rag_answer": "ad hoc retrieval, where the retrieval task is a task that is asynchronously performed by a language model.",
+    "contextual_retrieval_answer": "We’ll introduce information retrieval, indexing, ranking, dense retrieval, sparse retrieval, and retrieval augmented generation."
+  },
+  {
+    "question": "What is chunking in retrieval augmented generation systems?",
+    "ground_truth_answer": "Chunking is the process of splitting documents into smaller pieces so that relevant sections can be retrieved more effectively during question answering.",
+    "naive_rag_answer": "The task for the language model is then to generate text according to this proba- bility model: p(x1,...,xn) = n Y i=1 p(xi|R(q) ; Answer the following question... ; q ; xi) There are many augmentations of this basic RAG",
+    "contextual_retrieval_answer": "re- tweet documents from a store of documents that are likely to have useful information."
+  },
+  {
+    "question": "What role do embeddings play in dense retrieval?",
+    "ground_truth_answer": "Embeddings convert documents and queries into numerical vector representations so that similarity between them can be computed.",
+    "naive_rag_answer": "We’ll discuss sparse retrieval in the rest of this section, and turn to dense retrieval in Section 11.3.",
+    "contextual_retrieval_answer": "HISTORICAL NOTES 21 • The inverted index is a storage mechanism for sparse retrieval that makes it very efficient to find documents that have a particular word. • In dense retrieval techniques, documents or queries are instead represented as embeddings (dense vectors) computed by a language model (whether encoder- only models like the BERT"
+  },
+  {
+    "question": "What is the role of a retriever in a RAG system?",
+    "ground_truth_answer": "The retriever identifies and returns relevant document chunks from a knowledge base that can help answer the user's query.",
+    "naive_rag_answer": "The task for the language model is then to generate text according to this proba- bility model: p(x1,...,xn) = n Y i=1 p(xi|R(q) ; Answer the following question... ; q ; xi) There are many augmentations of this basic RAG",
+    "contextual_retrieval_answer": "retrieval-augmented generation and retrieval-augmented generation"
+  },
+  {
+    "question": "What is the role of a generator in a RAG system?",
+    "ground_truth_answer": "The generator is a language model that produces the final answer by using the retrieved documents as context.",
+    "naive_rag_answer": "The task for the language model is then to generate text according to this proba- bility model: p(x1,...,xn) = n Y i=1 p(xi|R(q) ; Answer the following question... ; q ; xi) There are many augmentations of this basic RAG",
+    "contextual_retrieval_answer": "retrieval-augmented generation and retrieval-augmented generation"
+  }
+]
