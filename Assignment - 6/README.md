@@ -21,14 +21,7 @@ ROUGE metrics.
 
 # Project Structure
 
-. 
-├── main.ipynb
-├── README.md
-├── app/
-│   ├── app.py
-│   └── chapter11_chunks.json
-└── answer/
-    └── response-st127761-chapter-11.json
+![Structure](https://github.com/Dakchhyeta-Shrestha/NLP/blob/main/Assignment%20-%206/output/Folder%20structure.png)
 
 ------------------------------------------------------------------------
 
@@ -124,7 +117,7 @@ Metrics used:
 ------------------------------------------------------------------------
 
 # ROUGE Evaluation Results
- ![Table Screenshot](https://github.com/Dakchhyeta-Shrestha/NLP/blob/main/Assignment%20-%206/output/output%20-3.png)
+ ![Table Screenshot](https://github.com/Dakchhyeta-Shrestha/NLP/blob/main/Assignment%20-%206/output/Rouge_table.jpeg)
 
 
 ------------------------------------------------------------------------
