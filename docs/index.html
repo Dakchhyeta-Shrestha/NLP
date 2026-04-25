@@ -517,61 +517,54 @@
    * The stub below returns a mock structured response for UI testing.
    */
   async function callModel(frontalDataUrl, lateralDataUrl, labels) {
-    const formData = new FormData();
+  const formData = new FormData();
 
-    if (state.frontalFile) {
-      formData.append('frontal', state.frontalFile);
-    }
+  formData.append("frontal", state.frontalFile);
 
-    if (state.lateralFile) {
-      formData.append('lateral', state.lateralFile);
-    }
-
-    formData.append('problems', JSON.stringify(labels));
-
-    const res = await fetch('https://xray-report-backend.onrender.com/generate-report', {
-      method: 'POST',
-      body: formData
-    });
-
-    if (!res.ok) {
-      throw new Error('Backend error: ' + res.status);
-    }
-
-    const data = await res.json();
-
-    if (data.error) {
-      throw new Error(data.error);
-    }
-
-    return {
-      summary: 'AI-generated draft radiology report based on the uploaded X-ray image and selected clinical problem labels.',
-      findings: [
-        {
-          label: 'Generated Report',
-          detail: data.generated_report || 'No generated report returned.'
-        },
-        {
-          label: 'Selected Problem Labels',
-          detail: data.selected_problems && data.selected_problems.length
-            ? data.selected_problems.join(', ')
-            : 'No labels selected'
-        },
-        {
-          label: 'Matched Output ID',
-          detail: data.matched_id ? String(data.matched_id) : 'Not available'
-        }
-      ],
-      impression: data.reference_report
-        ? 'Reference report: ' + data.reference_report
-        : 'No reference report available.',
-      recommendations: [
-        'This is a research prototype using pre-generated epoch 30 model outputs.',
-        'The selected problem labels are included as structured clinical input for the app interface.',
-        'This output is not for clinical diagnosis and should be reviewed by a qualified radiologist.'
-      ]
-    };
+  if (state.lateralFile) {
+    formData.append("lateral", state.lateralFile);
   }
+
+  formData.append("problems", JSON.stringify(labels));
+
+  const res = await fetch("https://xray-report-backend.onrender.com/generate-report", {
+    method: "POST",
+    body: formData
+  });
+
+  const data = await res.json();
+
+  if (!res.ok || data.error) {
+    throw new Error(data.error || "Backend failed with status " + res.status);
+  }
+
+  const selectedLabels =
+    data.selected_problems && data.selected_problems.length
+      ? data.selected_problems
+      : ["No Finding"];
+
+  return {
+    summary: `Based on the analysis of the chest X-ray images, the following clinical problem labels were provided: ${selectedLabels.join(", ")}.`,
+    findings: [
+      {
+        label: "AI Generated Report",
+        detail: data.generated_report
+      },
+      {
+        label: "Selected Problem Labels",
+        detail: selectedLabels.join(", ")
+      }
+    ],
+    impression: data.reference_report
+      ? data.reference_report
+      : "No reference report available.",
+    recommendations: [
+      "This is a research prototype and not a clinical diagnosis.",
+      "A qualified radiologist should review the generated report.",
+      "Clinical correlation with patient history and symptoms is required."
+    ]
+  };
+}
 
   /* ────────── Generate button ────────── */
   document.getElementById('generate-btn').addEventListener('click', async () => {
