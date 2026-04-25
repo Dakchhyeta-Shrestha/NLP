@@ -288,7 +288,7 @@
 
     <!-- Generate button -->
     <div class="btn-wrap">
-      <button class="btn-generate" id="generate-btn">
+      <button type="button" class="btn-generate" id="generate-btn" onclick="handleGenerateReport(event)">
         <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
           <rect x="2" y="3" width="20" height="18" rx="3"/><path d="M9 8h6M9 12h6M9 16h4"/>
         </svg>
@@ -517,78 +517,91 @@
    * The stub below returns a mock structured response for UI testing.
    */
   async function callModel(frontalDataUrl, lateralDataUrl, labels) {
-  const formData = new FormData();
+    const formData = new FormData();
 
-  formData.append("frontal", state.frontalFile);
+    if (!state.frontalFile) {
+      throw new Error('Please upload a frontal X-ray image.');
+    }
 
-  if (state.lateralFile) {
-    formData.append("lateral", state.lateralFile);
-  }
+    formData.append('frontal', state.frontalFile);
 
-  formData.append("problems", JSON.stringify(labels));
+    if (state.lateralFile) {
+      formData.append('lateral', state.lateralFile);
+    }
 
-  const res = await fetch("https://xray-report-backend.onrender.com/generate-report", {
-    method: "POST",
-    body: formData
-  });
+    formData.append('problems', JSON.stringify(labels));
 
-  const data = await res.json();
+    const res = await fetch('https://xray-report-backend.onrender.com/generate-report', {
+      method: 'POST',
+      body: formData
+    });
 
-  if (!res.ok || data.error) {
-    throw new Error(data.error || "Backend failed with status " + res.status);
-  }
+    let data;
+    try {
+      data = await res.json();
+    } catch (err) {
+      throw new Error('Backend returned an invalid response. Please try again.');
+    }
 
-  const selectedLabels =
-    data.selected_problems && data.selected_problems.length
+    if (!res.ok || data.error) {
+      throw new Error(data.error || ('Backend failed with status ' + res.status));
+    }
+
+    const selectedLabels = data.selected_problems && data.selected_problems.length
       ? data.selected_problems
-      : ["No Finding"];
+      : ['No Finding'];
 
-  return {
-    summary: `Based on the analysis of the chest X-ray images, the following clinical problem labels were provided: ${selectedLabels.join(", ")}.`,
-    findings: [
-      {
-        label: "AI Generated Report",
-        detail: data.generated_report
-      },
-      {
-        label: "Selected Problem Labels",
-        detail: selectedLabels.join(", ")
-      }
-    ],
-    impression: data.reference_report
-      ? data.reference_report
-      : "No reference report available.",
-    recommendations: [
-      "This is a research prototype and not a clinical diagnosis.",
-      "A qualified radiologist should review the generated report.",
-      "Clinical correlation with patient history and symptoms is required."
-    ]
-  };
-}
+    return {
+      summary: `Based on the uploaded chest X-ray images, the following clinical problem labels were provided: ${selectedLabels.join(', ')}.`,
+      findings: [
+        {
+          label: 'AI Generated Report',
+          detail: data.generated_report || 'No generated report returned.'
+        },
+        {
+          label: 'Selected Problem Labels',
+          detail: selectedLabels.join(', ')
+        }
+      ],
+      impression: data.reference_report
+        ? data.reference_report
+        : 'No reference report available.',
+      recommendations: [
+        'This is a research prototype and not a clinical diagnosis.',
+        'A qualified radiologist should review the generated report.',
+        'Clinical correlation with patient history and symptoms is required.'
+      ]
+    };
+  }
 
   /* ────────── Generate button ────────── */
-  document.getElementById('generate-btn').addEventListener('click', async () => {
+  async function handleGenerateReport(event) {
+    if (event) event.preventDefault();
+    console.log('Generate Report button clicked');
+
     if (!state.frontalFile) {
       alert('Please upload a frontal X-ray image before generating the report.');
       return;
     }
 
-    // Switch to result page, show loading
     showPage('result');
     populateResultImages();
-    document.getElementById('loading-box').style.display  = 'flex';
+    document.getElementById('loading-box').style.display = 'flex';
     document.getElementById('diagnostic-box').style.display = 'none';
 
     try {
       const output = await callModel(state.frontalDataUrl, state.lateralDataUrl, getSelectedLabels());
       renderReport(output);
     } catch (err) {
+      console.error(err);
       renderReport(`Error generating report: ${err.message}. Please try again.`);
     } finally {
-      document.getElementById('loading-box').style.display  = 'none';
+      document.getElementById('loading-box').style.display = 'none';
       document.getElementById('diagnostic-box').style.display = '';
     }
-  });
+  }
+
+  document.getElementById('generate-btn').addEventListener('click', handleGenerateReport);
 
   /* ────────── New Analysis ────────── */
   document.getElementById('new-analysis-btn').addEventListener('click', () => {
